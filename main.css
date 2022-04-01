@@ -1,0 +1,17 @@
+.game{
+    display: grid;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: black;
+    grid-template-columns: repeat(7, 100px);
+    grid-template-rows: repeat(6, 100px);
+    width: 710px;
+    height: 7600px;
+    background-image: url();
+};
+.board{
+    border-radius: 50%;
+    background-color: white;
+    height: 100px;
+    width: 100px;
+};
