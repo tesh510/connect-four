@@ -7,7 +7,7 @@
     grid-template-rows: repeat(6, 100px);
     width: 710px;
     height: 7600px;
-    background-image: url();
+    background-image: url src="https://giphy.com/gifs/justin-cry-crushed-michael-jordon-26FPImXfDlv4AFbBC";
 };
 .board{
     border-radius: 50%;
