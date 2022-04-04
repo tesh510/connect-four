@@ -10,9 +10,29 @@
 </head>
 <header>Connect 4</header>
 
-<body>
+    <body>
+        <div id="gameContainer">
+            <div id='playButton' onclick="newGame(this)">
+                <div>Play Game</div>
+            </div>
+        </div>
+        <div id='scoreBoard'>
+            <h4>Score Board:</h4>
+            <div class='scores'>
+                <div class='score'>
+                    <h6>Red :</h6>
+                    <p id='redScore'>0</p>
+                </div>
+                <div class='score'>
+                    <h6>Yellow :</h6>
+                    <p id='yellowScore'>0</p>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
 
-    <div class="game">
+    <!-- <div class="game">
         <div class="board"></div>
         <div class="board"></div>
         <div class="board"></div>
@@ -55,7 +75,6 @@
         <div class="board"></div>
         <div class="board"></div>
         <div class="board"></div>
-    </div>
+    </div> -->
     
-</body>
 </html>
