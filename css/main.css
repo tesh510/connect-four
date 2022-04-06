@@ -10,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Open Sans', sans-serif;
+  /* background-image: url("https://i.imgur.com/G1YFXmQ.jpg"); */
 }
 
 #markers {
@@ -44,4 +45,8 @@ body {
 #board > div {
   border-radius: 50%;
   border: 0.1vmin solid grey;
+}
+
+div {
+  
 }
