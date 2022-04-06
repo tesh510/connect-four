@@ -13,11 +13,17 @@ body {
   background-color: aqua;
 }
 
+main {
+  display: grid;
+  grid-template-columns: 80% 20%;
+
+}
+
 
 #markers {
   display: grid;
   grid-template-columns: repeat(7, 16vmin);
-  gap: 2vmin;
+  gap: 3vmin;
   margin-top: 4vmin;
 }
 
@@ -51,4 +57,5 @@ body {
 aside {
   height: 350px;
   width: 150px;
+  
 }

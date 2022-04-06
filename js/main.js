@@ -12,9 +12,13 @@ let winner;
 
 /*----- cached element references -----*/
 const markerEls = [...document.querySelectorAll('#markers > div')];
+const turnMsg = document.querySelector('h2');
 
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
+document.querySelector('button').addEventListener('click', init);
+
+
 
 /*----- functions -----*/
 init();
@@ -42,7 +46,9 @@ function render() {
       cellEl.style.backgroundColor = COLORS[cellVal];
     });
   });
-  renderMarkers();
+  renderMarkers(); checkWin();
+
+  turnMsg.innerText = `COLORS ${turn}otherPlayer`;
 }
 
 // hide/show the markers (hide if no 0's exist in that column)
@@ -62,4 +68,33 @@ function handleDrop(evt) {
   turn *= -1;
   render();
 }
+
+
+
+// Win Logic
+
+function checkWin() {
+  for(let i=0; i < board.length - 4; i++) {
+    for(let j=0; j < board[i].length - 4; j++) {
+      if(board[i][j] === turn && board[i][j+1] === turn && board[i][j+2] && board[i][j+3]) {
+        winner = true;
+      } else if(board[i][j] === turn && board[i+1][j] === turn && board[i+2][j] === turn && board[i+3][j]) {
+        winner = true;
+      } else if(board[i][j] === turn && board[i+1][j+1] === turn && board[i+2][j+2] === turn && board[i+3][j+3]) {
+        winner = true;
+      } else if(board[i][j] === turn && board[i+1][j-1] === turn && board[i+2][j-2] === turn && board[i+3][j-3]) {
+        winner = true;
+      }
+    }
+  }
+};
+
+
+
+
+
+
+
+
+
 
