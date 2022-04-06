@@ -3,21 +3,21 @@
 }
 
 body {
-  height: 100vh;
-  margin: 0;
+  height: 100vmin;
+  margin: 20vmin;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Open Sans', sans-serif;
-  /* background-image: url("https://i.imgur.com/G1YFXmQ.jpg"); */
+  background-color: aqua;
 }
 
 #markers {
   display: grid;
-  grid-template-columns: repeat(5, 16vmin);
+  grid-template-columns: repeat(7, 16vmin);
   gap: 2vmin;
-  margin-top: 2vmin;
+  margin-top: 4vmin;
 }
 
 #markers > div {
@@ -36,17 +36,13 @@ body {
 
 #board {
   display: grid;
-  grid-template-columns: repeat(5, 16vmin);
-  grid-template-rows: repeat(4, 16vmin);
+  grid-template-columns: repeat(7, 16vmin);
+  grid-template-rows: repeat(6, 16vmin);
   gap: 2vmin;
   margin-top: -3vmin;
 }
 
 #board > div {
   border-radius: 50%;
-  border: 0.1vmin solid grey;
-}
-
-div {
-  
+  border: 0.4vmin solid grey;
 }
