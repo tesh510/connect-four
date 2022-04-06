@@ -13,6 +13,7 @@ body {
   background-color: aqua;
 }
 
+
 #markers {
   display: grid;
   grid-template-columns: repeat(7, 16vmin);
@@ -45,4 +46,9 @@ body {
 #board > div {
   border-radius: 50%;
   border: 0.4vmin solid grey;
+}
+
+aside {
+  height: 350px;
+  width: 150px;
 }
