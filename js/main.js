@@ -12,19 +12,18 @@ let winner;
 
 /*----- cached element references -----*/
 const markerEls = [...document.querySelectorAll('#markers > div')];
-const turnMsg = document.querySelector('h2');
+const resetBtn = document.querySelector('h3')
 
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
-document.querySelector('button').addEventListener('click', init);
-
-
+resetBtn.addEventListener('click', init);
 
 /*----- functions -----*/
 init();
 
 // initialize state, then call render()
 function init() {
+  console.log('hello');
   board = [
     [0, 0, 0, 0, 0, 0],  // column 0
     [0, 0, 0, 0, 0, 0],  // column 1
@@ -46,9 +45,8 @@ function render() {
       cellEl.style.backgroundColor = COLORS[cellVal];
     });
   });
-  renderMarkers(); checkWin();
+  renderMarkers();
 
-  turnMsg.innerText = `COLORS ${turn}otherPlayer`;
 }
 
 // hide/show the markers (hide if no 0's exist in that column)
@@ -66,26 +64,73 @@ function handleDrop(evt) {
   const rowIdx = colArr.indexOf(0);
   colArr[rowIdx] = turn;
   turn *= -1;
+  getWinner(colIdx, rowIdx)
   render();
 }
 
 
 
-// Win Logic
-
-function checkWin() {
-  for(let i=0; i < board.length - 4; i++) {
-    for(let j=0; j < board[i].length - 4; j++) {
-      if(board[i][j] === turn && board[i][j+1] === turn && board[i][j+2] && board[i][j+3]) {
-        winner = true;
-      } else if(board[i][j] === turn && board[i+1][j] === turn && board[i+2][j] === turn && board[i+3][j]) {
-        winner = true;
-      } else if(board[i][j] === turn && board[i+1][j+1] === turn && board[i+2][j+2] === turn && board[i+3][j+3]) {
-        winner = true;
-      } else if(board[i][j] === turn && board[i+1][j-1] === turn && board[i+2][j-2] === turn && board[i+3][j-3]) {
-        winner = true;
-      }
-    }
+// reverse this (would be horizontal check)
+function checkHorzWin(colIdx, rowIdx) {
+  const player = board[colIdx][rowIdx];
+  let count = 1; 
+  //count up
+  let idx = rowIdx + 1; // initialize to one above 
+  while (idx < board[idx].length && board[colIdx][idx] === player) {
+    count++;
+    idx++;
   }
-};
+  idx = rowIdx - 1; // initialize to one above 
+  while (idx >= 0 && board[colIdx][idx] === player) {
+    count++;
+    idx--;
+  }
+  return count === 4 ? winner = player : null; 
+}
 
+
+
+function checkVertWin(colIdx, rowIdx) {
+  const player = board[colIdx][rowIdx];
+  let count = 1; 
+  //count right
+  let idx = colIdx + 1; // initialize to one above 
+  while (idx < board.length && board[idx][rowIdx] === player) {
+    count++;
+    idx++;
+  }
+  idx = colIdx - 1; // initialize to one above 
+  while (idx >= 0 && board[idx][rowIdx] === player) {
+    count++;
+    idx--;
+  }
+  return count >= 4 ? winner = player : null;
+}
+
+
+function getWinner(colIdx, rowIdx) {
+  return checkVertWin(colIdx, rowIdx)
+    || checkHorzWin(colIdx, rowIdx)
+    || checkForwardSlash(colIdx, rowIdx)
+
+}
+function checkForwardSlash(colIdx, rowIdx) {
+  const player = board[colIdx][rowIdx];
+  let count = 1; 
+  //count right
+  let idx1 = colIdx - 1;// initialize to one above 
+  let idx2 = rowIdx + 1;
+  while (idx1 >= 0  && idx2 < board[0].length && board[idx1][idx2] === player) {
+    count++;
+    idx1--;
+    idx2++;
+  }
+  idx1 = colIdx + 1; // initialize to one above 
+  idx2 = rowIdx - 1
+  while (idx1 < board.length && idx2 >= 0 && board[idx1][idx2] === player) {
+    count++;
+    idx1++;
+    idx2--;
+  }
+  return count === 4 ? winner = player : null; 
+}
