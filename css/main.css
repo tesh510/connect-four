@@ -55,6 +55,9 @@ main {
 }
 
 aside {
+  display: flexbox;
+  justify-content: right;
+  align-items: right;
   height: 350px;
   width: 150px;
   
