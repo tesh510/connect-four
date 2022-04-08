@@ -13,6 +13,7 @@ let winner;
 /*----- cached element references -----*/
 const markerEls = [...document.querySelectorAll('#markers > div')];
 const resetBtn = document.querySelector('h3')
+const message = document.querySelector('p')
 
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
@@ -47,6 +48,8 @@ function render() {
   });
   renderMarkers();
 
+  turnMsg.innerText = `${COLORS[turn]}player`;
+
 }
 
 // hide/show the markers (hide if no 0's exist in that column)
@@ -56,9 +59,16 @@ function renderMarkers() {
   });
 }
 
+// function renderWinner(player) {
+//   message.innerHTML = `The winner is ${COLORS[player]}!`;
+//   resetBtn.style.visibility = 'visible';
+//   winner = true;
+// }
+
 // Update all impacted state, then call render
 function handleDrop(evt) {
   const colIdx = markerEls.indexOf(evt.target);
+  if (winner) return;
   if (colIdx === -1) return;
   const colArr = board[colIdx];
   const rowIdx = colArr.indexOf(0);

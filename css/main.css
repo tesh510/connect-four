@@ -3,17 +3,20 @@
 }
 
 body {
-  height: 100vmin;
-  margin: 20vmin;
+  height: 100vh;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
   background-color: aqua;
 }
 
 main {
+  gap: 10%;
+  justify-content: center;
+  align-items: center;
   display: grid;
   grid-template-columns: 80% 20%;
 
@@ -22,14 +25,15 @@ main {
 
 #markers {
   display: grid;
-  grid-template-columns: repeat(7, 16vmin);
-  gap: 3vmin;
-  margin-top: 4vmin;
+  grid-template-columns: repeat(10, 9.2vmin);
+  gap: 2.9vmin;
+  margin-bottom: 2vmin;
 }
 
 #markers > div {
+  border-radius: 100%;
   height: 16vmin;
-  border-width: 8vmin;
+  border-width: 8vh;
   border-style: solid;
   border-color: lightgray transparent transparent;
   transform: scale(0.7);
@@ -42,23 +46,27 @@ main {
 }
 
 #board {
+  border: 5px solid red;
   display: grid;
-  grid-template-columns: repeat(7, 16vmin);
-  grid-template-rows: repeat(6, 16vmin);
+  grid-template-columns: repeat(7, 10vmin);
+  grid-template-rows: repeat(6, 10vmin);
   gap: 2vmin;
-  margin-top: -3vmin;
+  margin: -12.5% -4.1% -20%
+  /* margin-bottom: -2vmin; */
 }
 
 #board > div {
+  height: 90px;
+  width: 90px;
   border-radius: 50%;
   border: 0.4vmin solid grey;
 }
 
-aside {
+/* aside {
   display: flexbox;
   justify-content: right;
   align-items: right;
   height: 350px;
-  width: 150px;
+  width: 150px; */
   
 }
