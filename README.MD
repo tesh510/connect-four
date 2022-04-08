@@ -1,5 +1,16 @@
 # <Connect-Four->
-A description of your game. Background info of the game is a nice touch.
+this here is your basic connect-four. Nothing really special, just wanted to get something down. It was a fun challenging week, a lot was gained. 
+
+basic play:
+ use hovering upside down pyramids to insert tiles.
+ alternate turns.
+
+ winning combos:
+ vertical
+ horizontal
+ diagonal
+
+
 
 # Screenshot
 
@@ -11,7 +22,6 @@ A description of your game. Background info of the game is a nice touch.
 - JavaScript
 - HTML
 - CSS
-- CardStarter CSS Library
 
 # Getting Started
 
