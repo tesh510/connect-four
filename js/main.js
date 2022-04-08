@@ -132,5 +132,5 @@ function checkForwardSlash(colIdx, rowIdx) {
     idx1++;
     idx2--;
   }
-  return count === 4 ? winner = player : null; 
+  return count === 4 ? winner = player : null;
 }
