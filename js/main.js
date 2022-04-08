@@ -1,45 +1,44 @@
-/*----- constants -----*/
+
 const COLORS = {
   '0': 'white',
   '1': 'Blue',
   '-1': 'Red'
 };
 
-/*----- app's state (variables) -----*/
-let board;  // 2D Array where the nested arrays rep the columns
-let turn;  // 1 or -1; 0 for nobody home in that cell
+
+let board;  
+let turn;  
 let winner;
 
-/*----- cached element references -----*/
+
 const markerEls = [...document.querySelectorAll('#markers > div')];
 const resetBtn = document.querySelector('button')
 const turnMsg = document.getElementById('turnMsg')
 const winMsg = document.getElementById('winMsg')
-/*----- event listeners -----*/
+
 document.getElementById('markers').addEventListener('click', handleDrop);
 resetBtn.addEventListener('click', init);
 
-/*----- functions -----*/
+
 init();
 
-// initialize state, then call render()
+
 function init() {
   console.log('hello');
   board = [
-    [0, 0, 0, 0, 0, 0],  // column 0
-    [0, 0, 0, 0, 0, 0],  // column 1
-    [0, 0, 0, 0, 0, 0],  // column 2
-    [0, 0, 0, 0, 0, 0],  // column 3
-    [0, 0, 0, 0, 0, 0],  // column 4
-    [0, 0, 0, 0, 0, 0],  // column 5
-    [0, 0, 0, 0, 0, 0],  // column 6
+    [0, 0, 0, 0, 0, 0], 
+    [0, 0, 0, 0, 0, 0], 
+    [0, 0, 0, 0, 0, 0], 
+    [0, 0, 0, 0, 0, 0],  
+    [0, 0, 0, 0, 0, 0], 
+    [0, 0, 0, 0, 0, 0], 
   ];
   turn = 1;
   render();
 }
 
 function render() {
-  // Iterate over the column arrays
+
   board.forEach(function(colArr, colIdx) {
     colArr.forEach(function(cellVal, rowIdx) {
       const cellEl = document.getElementById(`c${colIdx}r${rowIdx}`);
@@ -52,20 +51,13 @@ function render() {
   if (winner) winMsg.innerText = `${COLORS[turn *-1]} player wins!`;
 }
 
-// hide/show the markers (hide if no 0's exist in that column)
+
 function renderMarkers() {
   markerEls.forEach(function(markerEl, colIdx) {
     markerEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden';
   });
 }
 
-// function renderWinner(player) {
-//   message.innerHTML = `The winner is ${COLORS[player]}!`;
-//   resetBtn.style.visibility = 'visible';
-//   winner = true;
-// }
-
-// Update all impacted state, then call render
 function handleDrop(evt) {
   const colIdx = markerEls.indexOf(evt.target);
   if (winner) return;
@@ -78,19 +70,15 @@ function handleDrop(evt) {
   render();
 }
 
-
-
-// reverse this (would be horizontal check)
 function checkHorzWin(colIdx, rowIdx) {
   const player = board[colIdx][rowIdx];
   let count = 1; 
-  //count up
-  let idx = rowIdx + 1; // initialize to one above 
+  let idx = rowIdx + 1; 
   while (idx < board[idx].length && board[colIdx][idx] === player) {
     count++;
     idx++;
   }
-  idx = rowIdx - 1; // initialize to one above 
+  idx = rowIdx - 1; 
   while (idx >= 0 && board[colIdx][idx] === player) {
     count++;
     idx--;
@@ -98,25 +86,21 @@ function checkHorzWin(colIdx, rowIdx) {
   return count === 4 ? winner = player : null; 
 }
 
-
-
 function checkVertWin(colIdx, rowIdx) {
   const player = board[colIdx][rowIdx];
   let count = 1; 
-  //count right
-  let idx = colIdx + 1; // initialize to one above 
+  let idx = colIdx + 1;
   while (idx < board.length && board[idx][rowIdx] === player) {
     count++;
     idx++;
   }
-  idx = colIdx - 1; // initialize to one above 
+  idx = colIdx - 1;
   while (idx >= 0 && board[idx][rowIdx] === player) {
     count++;
     idx--;
   }
   return count >= 4 ? winner = player : null;
 }
-
 
 function getWinner(colIdx, rowIdx) {
   return checkVertWin(colIdx, rowIdx)
@@ -126,16 +110,15 @@ function getWinner(colIdx, rowIdx) {
 }
 function checkForwardSlash(colIdx, rowIdx) {
   const player = board[colIdx][rowIdx];
-  let count = 1; 
-  //count right
-  let idx1 = colIdx - 1;// initialize to one above 
+  let count = 1;
+  let idx1 = colIdx - 1;
   let idx2 = rowIdx + 1;
   while (idx1 >= 0  && idx2 < board[0].length && board[idx1][idx2] === player) {
     count++;
     idx1--;
     idx2++;
   }
-  idx1 = colIdx + 1; // initialize to one above 
+  idx1 = colIdx + 1;
   idx2 = rowIdx - 1
   while (idx1 < board.length && idx2 >= 0 && board[idx1][idx2] === player) {
     count++;

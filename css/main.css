@@ -9,7 +9,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* font-family: 'Open Sans', sans-serif; */
   background-color: aqua;
   background-image: image();
 }
@@ -34,7 +33,6 @@ main {
 #markers {
   display: flex;
   flex-direction: row;
-  /* gap: 2vmin; */
   margin-bottom: -2vmin;
 }
 
@@ -59,7 +57,6 @@ main {
   grid-template-columns: repeat(7, 8vmin);
   grid-template-rows: repeat(6, 8vmin);
   gap: 2vmin;
-  /* margin: -12.5% -4.1% -20%; */
   margin-bottom: -2vmin;
 }
 
@@ -68,14 +65,7 @@ main {
   border: 0.4vmin solid grey;
 }
 
-/* aside {
-  display: flexbox;
-  justify-content: right;
-  align-items: right;
-  height: 350px;
-  width: 150px; */
   
-
 aside {
   position: absolute;
   right: 100px;
