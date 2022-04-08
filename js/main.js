@@ -12,9 +12,9 @@ let winner;
 
 /*----- cached element references -----*/
 const markerEls = [...document.querySelectorAll('#markers > div')];
-const resetBtn = document.querySelector('h3')
-const message = document.querySelector('p')
-
+const resetBtn = document.querySelector('button')
+const turnMsg = document.getElementById('turnMsg')
+const winMsg = document.getElementById('winMsg')
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
 resetBtn.addEventListener('click', init);
@@ -48,8 +48,8 @@ function render() {
   });
   renderMarkers();
 
-  turnMsg.innerText = `${COLORS[turn]}player`;
-
+  turnMsg.innerText = `${COLORS[turn]} player`;
+  if (winner) winMsg.innerText = `${COLORS[turn *-1]} player wins!`;
 }
 
 // hide/show the markers (hide if no 0's exist in that column)
