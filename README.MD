@@ -15,7 +15,7 @@ basic play:
 # Screenshot
 
 <img src="https://i.imgur.com/NpFrIsm.png">
-<img src="url to your image on imgur">
+<img src="https://i.imgur.com/R3RJsvU.png">
 
 # Technologies Used
 
@@ -29,5 +29,5 @@ basic play:
 
 # Next Steps
 
-- Future enhancement one...
-- Future enhancement two... 
+- I want to come back to this project, work on my CSS, and add music.
+- Add more functions in JavaScript
