@@ -11,6 +11,11 @@ body {
   align-items: center;
   /* font-family: 'Open Sans', sans-serif; */
   background-color: aqua;
+  background-image: image();
+}
+
+h3 {
+  font-style: italic;
 }
 
 main {

@@ -14,7 +14,7 @@ basic play:
 
 # Screenshot
 
-<img src="https://i.imgur.com/NpFrIsm.png">
+<img src="https://i.imgur.com/x2evqQf.png">
 <img src="https://i.imgur.com/R3RJsvU.png">
 
 # Technologies Used
@@ -25,7 +25,7 @@ basic play:
 
 # Getting Started
 
-[Click to Play Connect Four!](your deployment url here)
+https://tesh510.github.io/connect-four/
 
 # Next Steps
 
