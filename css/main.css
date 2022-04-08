@@ -22,7 +22,6 @@ main {
 
 }
 
-
 #markers {
   display: grid;
   grid-template-columns: repeat(10, 9.2vmin);

@@ -1,4 +1,4 @@
-# <Your game's title>
+# <Connect-Four->
 A description of your game. Background info of the game is a nice touch.
 
 # Screenshot
