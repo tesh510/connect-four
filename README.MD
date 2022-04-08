@@ -24,7 +24,7 @@ basic play:
 - CSS
 
 # Getting Started
-
+Here is the link to my game!! 
 https://tesh510.github.io/connect-four/
 
 # Next Steps
